@@ -7,10 +7,10 @@ import java.util.regex.Pattern;
 
 public class TextManager {
 
-    /*
-        @param message The message to translate
-        @return The formatted message
-    */
+    /**
+     * @param message The message to translate
+     * @return The color translated message
+     */
     public String translateHex(String message) {
         final char COLOUR_CHAR = ChatColor.COLOR_CHAR;
         final Pattern hexPattern = Pattern.compile("&#([A-Fa-f0-9]{6})");

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScoreboardInterface {
-    private final ScoreboardManager manager;
+    ScoreboardManager manager;
     private final Scoreboard scoreboard;
 
     private String title;
