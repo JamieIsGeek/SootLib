@@ -11,6 +11,10 @@ public class CommandRegisterer {
     private final JavaPlugin plugin;
     private final String packageName;
     private final String folderName;
+
+    /**
+     * @param folderName The name of the folder that the Command classes are in.
+     */
     public CommandRegisterer(String folderName) {
         this.plugin = SootLib.getSootLib().provider;
         this.packageName = plugin.getClass().getPackage().getName();

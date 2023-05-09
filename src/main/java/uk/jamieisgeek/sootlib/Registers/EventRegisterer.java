@@ -12,6 +12,9 @@ public class EventRegisterer {
     private final String packageName;
     private final String folderName;
 
+    /**
+     * @param folderName The name of the folder that the Event classes are in.
+     */
     public EventRegisterer(String folderName) {
         this.plugin = SootLib.getSootLib().provider;
         this.packageName = plugin.getClass().getPackage().getName();

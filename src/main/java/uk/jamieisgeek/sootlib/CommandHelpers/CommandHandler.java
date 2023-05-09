@@ -40,9 +40,17 @@ public abstract class CommandHandler implements CommandExecutor {
         return true;
     }
 
+    /**
+     * @param player The player that executed the command
+     * @param args The arguments that were passed to the command
+     */
     public void execute(Player player, String[] args) {
     }
 
+    /**
+     * @param sender The sender that executed the command (Possibly console)
+     * @param args The arguments that were passed to the command
+     */
     public void execute(CommandSender sender, String[] args) {
     }
 }
