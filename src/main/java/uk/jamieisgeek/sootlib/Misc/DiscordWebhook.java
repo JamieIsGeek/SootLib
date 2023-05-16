@@ -1,4 +1,4 @@
-package uk.jamieisgeek.sootlib.Misc
+package uk.jamieisgeek.sootlib.Misc;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.awt.*;
