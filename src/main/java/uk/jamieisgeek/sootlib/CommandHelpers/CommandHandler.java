@@ -4,7 +4,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import uk.jamieisgeek.sootlib.SootLib;
 
 import java.util.Objects;
 
@@ -12,7 +11,7 @@ public abstract class CommandHandler implements CommandExecutor {
     private final CommandInfo commandInfo;
 
     public CommandHandler() {
-        this.commandInfo = SootLib.getSootLib().getClass().getDeclaredAnnotation(CommandInfo.class);
+        this.commandInfo = getClass().getDeclaredAnnotation(CommandInfo.class);
         Objects.requireNonNull(commandInfo, "CommandInfo annotation is required for CommandHandler");
     }
 
