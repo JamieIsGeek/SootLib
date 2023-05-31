@@ -26,26 +26,44 @@ public class DiscordWebhook {
         this.url = url;
     }
 
+    /**
+     * @param content The message contents (up to 2000 characters)
+     */
     public void setContent(String content) {
         this.content = content;
     }
 
+    /**
+     * @param username The username to use for this message
+     */
     public void setUsername(String username) {
         this.username = username;
     }
 
+    /**
+     * @param avatarUrl The avatar URL to use for this message
+     */
     public void setAvatarUrl(String avatarUrl) {
         this.avatarUrl = avatarUrl;
     }
 
+    /**
+     * @param tts Whether or not this message should be read aloud
+     */
     public void setTts(boolean tts) {
         this.tts = tts;
     }
 
+    /**
+     * @param embed The embeds to use for this message
+     */
     public void addEmbed(EmbedObject embed) {
         this.embeds.add(embed);
     }
 
+    /**
+     * @throws IOException If the request was not successful
+     */
     public void execute() throws IOException {
         if (this.content == null && this.embeds.isEmpty()) {
             throw new IllegalArgumentException("Set content or add at least one EmbedObject");
@@ -160,82 +178,150 @@ public class DiscordWebhook {
         private Author author;
         private List<Field> fields = new ArrayList<>();
 
+        /**
+         * @return The title of the embed
+         */
         public String getTitle() {
             return title;
         }
 
+        /**
+         * @return The description of the embed
+         */
         public String getDescription() {
             return description;
         }
 
+        /**
+         * @return The URL of the embed
+         */
         public String getUrl() {
             return url;
         }
 
+        /**
+         * @return The color of the embed
+         */
         public Color getColor() {
             return color;
         }
 
+        /**
+         * @return The footer of the embed
+         */
         public Footer getFooter() {
             return footer;
         }
 
+        /**
+         * @return The thumbnail of the embed
+         */
         public Thumbnail getThumbnail() {
             return thumbnail;
         }
 
+        /**
+         * @return The image of the embed
+         */
         public Image getImage() {
             return image;
         }
 
+        /**
+         * @return The author of the embed
+         */
         public Author getAuthor() {
             return author;
         }
 
+        /**
+         * @return The fields of the embed
+         */
         public List<Field> getFields() {
             return fields;
         }
 
+        /**
+         * @param title The title of the embed
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setTitle(String title) {
             this.title = title;
             return this;
         }
 
+        /**
+         * @param description The description of the embed
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setDescription(String description) {
             this.description = description;
             return this;
         }
 
+        /**
+         * @param url The URL of the embed
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setUrl(String url) {
             this.url = url;
             return this;
         }
 
+        /**
+         * @param color The color of the embed
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setColor(Color color) {
             this.color = color;
             return this;
         }
 
+        /**
+         * @param text The text of the footer
+         * @param icon The icon of the footer
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setFooter(String text, String icon) {
             this.footer = new Footer(text, icon);
             return this;
         }
 
+        /**
+         * @param url The URL of the thumbnail
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setThumbnail(String url) {
             this.thumbnail = new Thumbnail(url);
             return this;
         }
 
+        /**
+         * @param url The URL of the image
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setImage(String url) {
             this.image = new Image(url);
             return this;
         }
 
+        /**
+         * @param name The name of the author
+         * @param url The URL of the author
+         * @param icon The icon of the author
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject setAuthor(String name, String url, String icon) {
             this.author = new Author(name, url, icon);
             return this;
         }
 
+        /**
+         * @param name The name of the field
+         * @param value The value of the field
+         * @param inline Whether the field is inline or not
+         * @return The current EmbedObject for chaining convenience
+         */
         public EmbedObject addField(String name, String value, boolean inline) {
             this.fields.add(new Field(name, value, inline));
             return this;
@@ -245,15 +331,25 @@ public class DiscordWebhook {
             private String text;
             private String iconUrl;
 
+            /**
+             * @param text The text of the footer
+             * @param iconUrl The icon of the footer
+             */
             private Footer(String text, String iconUrl) {
                 this.text = text;
                 this.iconUrl = iconUrl;
             }
 
+            /**
+             * @return The text of the footer
+             */
             private String getText() {
                 return text;
             }
 
+            /**
+             * @return The icon of the footer
+             */
             private String getIconUrl() {
                 return iconUrl;
             }
@@ -262,10 +358,16 @@ public class DiscordWebhook {
         private class Thumbnail {
             private String url;
 
+            /**
+             * @param url The URL of the thumbnail
+             */
             private Thumbnail(String url) {
                 this.url = url;
             }
 
+            /**
+             * @return The URL of the thumbnail
+             */
             private String getUrl() {
                 return url;
             }
@@ -274,10 +376,16 @@ public class DiscordWebhook {
         private class Image {
             private String url;
 
+            /**
+             * @param url The URL of the image
+             */
             private Image(String url) {
                 this.url = url;
             }
 
+            /**
+             * @return The URL of the image
+             */
             private String getUrl() {
                 return url;
             }
@@ -288,20 +396,34 @@ public class DiscordWebhook {
             private String url;
             private String iconUrl;
 
+            /**
+             * @param name The name of the author
+             * @param url The URL of the author
+             * @param iconUrl The icon of the author
+             */
             private Author(String name, String url, String iconUrl) {
                 this.name = name;
                 this.url = url;
                 this.iconUrl = iconUrl;
             }
 
+            /**
+             * @return The name of the author
+             */
             private String getName() {
                 return name;
             }
 
+            /**
+             * @return The URL of the author
+             */
             private String getUrl() {
                 return url;
             }
 
+            /**
+             * @return The icon of the author
+             */
             private String getIconUrl() {
                 return iconUrl;
             }
@@ -312,20 +434,34 @@ public class DiscordWebhook {
             private String value;
             private boolean inline;
 
+            /**
+             * @param name The name of the field
+             * @param value The value of the field
+             * @param inline Whether the field is inline or not
+             */
             private Field(String name, String value, boolean inline) {
                 this.name = name;
                 this.value = value;
                 this.inline = inline;
             }
 
+            /**
+             * @return The name of the field
+             */
             private String getName() {
                 return name;
             }
 
+            /**
+             * @return The value of the field
+             */
             private String getValue() {
                 return value;
             }
 
+            /**
+             * @return Whether the field is inline or not
+             */
             private boolean isInline() {
                 return inline;
             }
@@ -336,12 +472,19 @@ public class DiscordWebhook {
 
         private final HashMap<String, Object> map = new HashMap<>();
 
+        /**
+         * @param key The key of the value
+         * @param value The value
+         */
         void put(String key, Object value) {
             if (value != null) {
                 map.put(key, value);
             }
         }
 
+        /**
+         * @return The value
+         */
         @Override
         public String toString() {
             StringBuilder builder = new StringBuilder();
@@ -376,6 +519,10 @@ public class DiscordWebhook {
             return builder.toString();
         }
 
+        /**
+         * @param string The string to quote
+         * @return The quoted string
+         */
         private String quote(String string) {
             return "\"" + string + "\"";
         }
